@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<!--
+* CoreUI - Free Bootstrap Admin Template
+* @version v2.0.0
+* @link https://coreui.io
+* Copyright (c) 2018 creativeLabs Łukasz Holeczek
+* Licensed under MIT (https://coreui.io/license)
+-->
+
+<html lang="en">
+
+<head>
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+    <title>Car Tracker</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+    <!-- Icons-->
+    <link href="node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+
+    <!-- <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <!-- Main styles for this application-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+
+    <style>
+        html {
+            /* background: url(../img/brand/background.jpg) no-repeat center center fixed;                 -webkit-background-size: cover; */
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        
+        body {
+            /* color: #636b6f; */
+            font-family: 'Raleway', sans-serif;
+            font-weight: 100;
+            height: 100vh;
+            margin: 0;
+            /* background-color:transparent !important; */
+        }
+        
+        body::before {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            opacity: .6;
+        }
+        
+        .sidebar {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            padding: 0;
+            color: #fff;
+            background: #292b79;
+        }
+        
+        .sidebar .nav-link.active {
+            color: #fff;
+            background: #1b154a;
+        }
+        
+        .sidebar .nav-link.active .nav-icon {
+            color: #161cff;
+        }
+        
+        .sidebar .nav-link:hover .nav-icon {
+            color: #fff;
+        }
+        
+        .sidebar .nav-link:hover {
+            color: #fff;
+            background: #161cff;
+        }
+    </style>
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <header class="app-header navbar">
+        <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <a class="navbar-brand" href="index.html">
+            <img class="navbar-brand-full" src="img/logo.png" width="100" height="45" alt="Insulin Logo">
+            <img class="navbar-brand-minimized" src="img/logo_icon.png" width="45" height="45" alt="Insulin Logo">
+        </a>
+        <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <ul class="nav navbar-nav d-md-down-none">
+            <li class="nav-item px-3">
+                Car Shock History
+            </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto">
+        </ul>
+    </header>
+    <div class="app-body">
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">
+                            <i class="nav-icon fa fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-title">Devices Data (Live)</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gps.html">
+                            <i class="nav-icon fa fa-map-marked-alt"></i> Car GPS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carshock.html">
+                            <i class="nav-icon fa fa-car-crash"></i> Car Shock</a>
+                    </li>
+                    <li class="nav-title">History</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="histgps.html">
+                            <i class="nav-icon fa fa-map-marked-alt"></i> Car Routes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="histcarshock.html">
+                            <i class="nav-icon fa fa-car-crash"></i> Car Shock</a>
+                    </li>
+                    <li class="nav-title">Vehicles</li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="carinfo.html">
+                            <i class="nav-icon fa fa-car-crash"></i> Driver's Information</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <main class="main">
+            <div class="container-fluid" style="padding:15px;">
+                <div class="animated fadeIn">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="nav-icon fa fa-map-marked-alt"></i> Car Shock History
+                            <span class="fa-pull-right">Graph Type:  
+                                    <select id="carshockGraphType" onChange="changeGraph()">
+                                      <option value="bar" >Bar</option>
+                                      <option value="line" >Line</option>
+                                  </select>
+                                </span>
+                        </div>
+                        <div class="card-body" style="padding:10px; margin:0;">
+                            <div id="carshock_chart_div">
+                                <canvas id="carshock_chart_canvas" width="100%" height="40vh"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Date: <input id="selectDate" onchange="pickDate(event);" type="date" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="app-footer">
+        <div>
+            <a href="/">Car Tracker</a>
+            <span>&copy; 2018</span>
+        </div>
+
+    </footer>
+    <!-- CoreUI and necessary plugins-->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/pace-progress/pace.min.js"></script>
+    <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+    <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+    <!-- Plugins and scripts required by this view-->
+    <script src="node_modules/chart.js/dist/Chart.min.js"></script>
+    <script src="node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
+    <!-- <script src="/js/main.js"></script> -->
+    <script src="node_modules/moment/moment.min.js"></script>
+    <script>
+        var mainChart = null;
+        var LatestId = null;
+        var arrayMaxSize = 100;
+        var id = [];
+        var latitude = [];
+        var longitude = [];
+        var car_shock = [];
+        var created_at = [];
+        var bgColor = 'rgba(2, 101, 10, 0.2)';
+        var bColor = 'rgba(2, 101, 10, 1)';
+
+        $(function() {
+            firstReadFromDatabase();
+        });
+
+        function changeGraph() {
+            loadChart(car_shock, created_at);
+        };
+
+        function pickDate(e) {
+            sendRequest(e.target.value, false);
+        }
+
+        function firstReadFromDatabase() {
+            var requestDate = getCurrentDate();
+            document.getElementById("selectDate").value = requestDate;
+            sendRequest(requestDate, true)
+        }
+
+        function sendRequest(requestDate, isFirstLoad) {
+
+            currentDate = requestDate;
+            var yesterDay = minusDate(requestDate);
+            // console.log(yesterDay);
+
+            var startdate = yesterDay + " 16:00:00";
+            var enddate = requestDate + " 16:00:00";
+
+            var api_url = "https://accidenttrackerdevice.000webhostapp.com/api/tracker/readdate.php?startdate=" + startdate + "&enddate=" + enddate;
+
+            id = [];
+            latitude = [];
+            longitude = [];
+            car_shock = [];
+            created_at = [];
+
+            $.ajax({
+                url: api_url,
+                success: function(responseData) {
+                    // console.log(responseData);
+
+                    $.each(responseData.records, function(i, item) {
+                        id[i] = item.id;
+                        latitude[i] = item.latitude;
+                        longitude[i] = item.longitude;
+                        car_shock[i] = item.car_shock;
+                        created_at[i] = addDate(item.created_at);
+                        // time[i] = addDate(item.created_at);
+                    });
+
+                    LatestId = id[0];
+                    id = id.reverse();
+                    latitude = latitude.reverse();
+                    longitude = longitude.reverse();
+                    car_shock = car_shock.reverse();
+                    created_at = created_at.reverse();
+
+                    loadChart(car_shock, created_at);
+
+                }
+            });
+        }
+
+
+        function minusDate(advanceDate) {
+            var newDate = new Date(advanceDate);
+            newDate.setDate(newDate.getDate() - 1);
+            var dd = newDate.getDate();
+            var mm = newDate.getMonth() + 1;
+            var yyyy = newDate.getFullYear();
+
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+
+            newDate = yyyy + '-' + mm + '-' + dd;
+
+            return newDate;
+        }
+
+        function addDate(lateDate) {
+            var newDate = moment(lateDate).add(8, 'hours').format('YYYY-MM-DD hh:mm:ss');
+            return newDate;
+        }
+
+        function getCurrentDate() {
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1;
+            var yyyy = today.getFullYear();
+
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+            today = yyyy + '-' + mm + '-' + dd;
+            return today;
+        }
+
+        function loadChart(value, time) {
+            var chartDiv = "carshock_chart_div"
+            var chartCanvas = "carshock_chart_canvas";
+            var chartLabel = "Car Shock";
+            var graphType = document.getElementById("carshockGraphType").value;;
+            var colors = graphColors(bgColor, bColor, graphType, value.length)
+
+            viewGraph(chartDiv, chartCanvas, chartLabel, graphType, value, time, colors[0], colors[1]);
+        }
+
+        function graphColors(bgColor, bColor, graphType, arrayLength) {
+            var bgColorArray = [];
+            var bColorArray = [];
+            var index = 0;
+
+            if (graphType == "bar") {
+
+                while (index <= arrayLength) {
+
+                    bgColorArray[index] = bgColor;
+                    bColorArray[index] = bColor;
+                    index++;
+                }
+            } else {
+                bgColorArray[0] = bgColor;
+                bColorArray[0] = bColor;
+            }
+
+            return [bgColorArray, bColorArray];
+        }
+
+        function viewGraph(chartDiv, chartCanvas, chartLabel, graphType, value, time, bgColor, bColor) {
+
+            var pieChartContent = document.getElementById(chartDiv);
+            pieChartContent.innerHTML = '&nbsp;';
+            $('#' + chartDiv).append('<canvas id="' + chartCanvas + '"  width="100%" height="40vh" ><canvas>');
+
+            var ctx = document.getElementById(chartCanvas).getContext('2d');
+            mainChart = new Chart(ctx, {
+                type: graphType,
+                data: {
+                    labels: time,
+                    datasets: [{
+                        label: chartLabel,
+                        data: value,
+                        backgroundColor: bgColor,
+                        borderColor: bColor,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                callback: function(value) {
+                                    return value.substr(11); //truncate
+                                },
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        enabled: true,
+                        mode: 'label',
+                        callbacks: {
+                            title: function(tooltipItems, data) {
+                                var idx = tooltipItems[0].index;
+                                return 'Date: ' + data.labels[idx]; //do something with title
+                            },
+                            label: function(tooltipItems, data) {
+                                //var idx = tooltipItems.index;
+                                //return data.labels[idx] + ' €';
+                                return "Shock: " + tooltipItems.yLabel + ' ';
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

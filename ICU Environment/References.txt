@@ -1,0 +1,29 @@
+References:
+
+INSTALLING OPERATING SYSTEM IMAGES (Raspbian OS)
+	Note: Refenrence used in OS installation for raspberry pi.
+	Site: https://www.raspberrypi.org/documentation/installation/installing-images/
+
+Motion Eye installation:
+	Note: Reference used in Camera software installation
+	Site: https://github.com/ccrisan/motioneye/wiki/Install-On-Raspbian
+
+Laravel Documentation:
+	Note: Framework used in creating the icuenvironment website.
+	Site: https://laravel.com/docs/5.6
+
+SETTING UP AN APACHE WEB SERVER ON A RASPBERRY PI
+	Note: Reference used in installation of apache server.
+	Site: https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md
+
+Raspberry Pi MySQL & PHPMyAdmin Tutorial
+	Note: PHPMyAdmin Administrative tool used in managing mysql Database.
+	Site: https://pimylifeup.com/raspberry-pi-mysql-phpmyadmin/
+
+Chart.js Documentation
+	Note: Reference used in creating different types of graphs.
+	Site: http://www.chartjs.org/docs/latest/
+
+Wireless communication between Raspberry Pi’s via MQTT broker/client
+	Note: MQTT is a protocol that specifically sends data from devices of the Internet of Things and is supported by most microcontrollers and systems.
+	Site: https://tutorials-raspberrypi.com/raspberry-pi-mqtt-broker-client-wireless-communication/

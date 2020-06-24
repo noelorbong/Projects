@@ -1,0 +1,21 @@
+Firebase Account
+Site: https://console.firebase.google.com
+Email: insulinroommonitoring@gmail.com
+password: monitoringkey0
+
+Google Account
+Site: https://mail.google.com
+Email: insulinroommonitoring@gmail.com
+password: monitoringkey0
+
+000webhost Account
+Site: https://ph.000webhost.com/
+Email: insulinroommonitoring@gmail.com
+password: monitoringkey0
+
+phpmyadmin Account
+site: https://databases.000webhost.com/
+username: id6689327_insulin
+password: monitoringkey0
+
+Webiste: insulinenvironment.000webhostapp.com

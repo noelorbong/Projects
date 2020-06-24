@@ -1,0 +1,25 @@
+System user Interface
+Site: http://facerecognition
+Default Account:
+	email: admin@yahoo.com
+	password: 123456
+
+Mysql administration tool.
+Site: http://facerecognition/phpmyadmin/
+	username: pi
+	password: raspberry
+
+Network File Access
+Directory: \\facerecognition\PiShare or \\{IP Address}\PiShare
+	username: pi
+	password: raspberry
+
+Remote Desktop connection
+Directory: facerecognition or {IP Address}
+	username: pi
+	password: raspberry
+
+Google Account
+Site: https://accounts.google.com
+	email: facerecognition.hau@gmail.com
+	password: recognitionkey

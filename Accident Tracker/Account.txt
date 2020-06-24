@@ -1,0 +1,16 @@
+Google Account
+Site: https://mail.google.com
+Email: accidenttrackerdevice@gmail.com
+password: trackerkey
+
+000webhost Account
+Site: https://ph.000webhost.com/
+Email: accidenttrackerdevice@gmail.com
+password: trackerkey
+
+phpmyadmin Account
+site: https://databases.000webhost.com/
+username: id6924693_cartrack
+password: trackerkey
+
+Webiste: accidenttrackerdevice.000webhostapp.com

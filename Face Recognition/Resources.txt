@@ -1,0 +1,14 @@
+Face Recognition resource
+site: https://www.hackster.io/mjrobot/real-time-face-recognition-an-end-to-end-project-a10826
+
+Face Recognition Algorithm
+site: https://docs.opencv.org/3.3.0/d7/d8b/tutorial_py_face_detection.html
+
+Raspberry Pi MySQL & PHPMyAdmin Tutorial
+site: https://pimylifeup.com/raspberry-pi-mysql-phpmyadmin/
+
+Raspbian Stretch: Install OpenCV 3 + Python on your Raspberry Pi
+site: https://www.pyimagesearch.com/2017/09/04/raspbian-stretch-install-opencv-3-python-on-your-raspberry-pi/
+
+Laravel installation
+site: https://laravel.com/docs/5.7/installation 

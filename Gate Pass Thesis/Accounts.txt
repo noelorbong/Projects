@@ -1,0 +1,12 @@
+Raspberry pi User Login:
+	username: pi
+	password: raspberry
+
+Raspberry pi PhpMyadmin account:
+	username: gatepass
+	password: gatepasskey
+	link: http://gatepass/phpmyadmin/
+
+Gatepass default Login Account
+	email: root@yahoo.com
+	password: 123456

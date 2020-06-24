@@ -1,0 +1,16 @@
+Google Account
+Site: https://mail.google.com
+Email: alcohollevelmonitoring@gmail.com
+password: alcoholkey
+
+000webhost Account
+Site: https://ph.000webhost.com/
+Email: alcohollevelmonitoring@gmail.com
+password: alcoholkey
+
+phpmyadmin Account
+site: https://databases.000webhost.com/
+username: id7022938_alcohol
+password: alcoholkey
+
+Webiste: driveralcoholmonitoring.000webhostapp.com

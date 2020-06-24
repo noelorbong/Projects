@@ -1,0 +1,24 @@
+System user Interface
+Site: http://doormonitoring
+Default Account:
+	email: admin@yahoo.com
+	password: 123456
+
+Mysql administration tool.
+Site: http://doormonitoring/phpmyadmin/
+	username: pi
+	password: raspberry
+
+Network File Access
+Directory: \\doormonitoring\PiShare or \\{IP Address}\PiShare
+	username: pi
+	password: raspberry
+
+Remote Desktop connection
+Directory: doormonitoring or {IP Address}
+	username: pi
+	password: raspberry
+
+Google Account:
+	Email: doormonitoring18@gmail.com
+	password: monitoringkey

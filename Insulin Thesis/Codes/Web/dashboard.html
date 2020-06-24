@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<!--
+* CoreUI - Free Bootstrap Admin Template
+* @version v2.0.0
+* @link https://coreui.io
+* Copyright (c) 2018 creativeLabs Łukasz Holeczek
+* Licensed under MIT (https://coreui.io/license)
+-->
+
+<html lang="en">
+
+<head>
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+    <title>Insulin Environment Monitoring</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+    <!-- Icons-->
+    <link href="node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+
+    <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Main styles for this application-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+
+    <style>
+        html {
+            /* background: url(../img/brand/background.jpg) no-repeat center center fixed;                 -webkit-background-size: cover; */
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        
+        body {
+            /* color: #636b6f; */
+            font-family: 'Raleway', sans-serif;
+            font-weight: 100;
+            height: 100vh;
+            margin: 0;
+            /* background-color:transparent !important; */
+        }
+        
+        body::before {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            opacity: .6;
+        }
+        
+        .sidebar {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            padding: 0;
+            color: #fff;
+            background: #015f00;
+        }
+        
+        .sidebar .nav-link.active {
+            color: #fff;
+            background: #08460a;
+        }
+        
+        .sidebar .nav-link.active .nav-icon {
+            color: #20d830;
+        }
+        
+        .sidebar .nav-link:hover {
+            color: #fff;
+            background: #3bd820;
+        }
+    </style>
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <header class="app-header navbar">
+        <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <a class="navbar-brand" href="index.html">
+            <img class="navbar-brand-full" src="img/logo.png" width="100" height="45" alt="Insulin Logo">
+            <img class="navbar-brand-minimized" src="img/logo_icon.png" width="45" height="45" alt="Insulin Logo">
+        </a>
+        <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <ul class="nav navbar-nav d-md-down-none">
+            <li class="nav-item px-3">
+                Insulin Environment Monitoring
+            </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto">
+        </ul>
+    </header>
+    <div class="app-body">
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">
+                            <i class="nav-icon fa fa-dashboard"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-title">Sensors Data (Live)</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="temperature.html">
+                            <i class="nav-icon  fa fa-thermometer-half "></i> Temperature</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="humidity.html">
+                            <i class="nav-icon fa fa-tint"></i> Humidity</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="heatindex.html">
+                            <i class="nav-icon fa fa-fire"></i> Heat Index</a>
+                    </li>
+                    <li class="nav-title">History</li>
+                    <li class="nav-item nav-dropdown">
+                        <a class="nav-link nav-dropdown-toggle" href="#">
+                            <i class="nav-icon fa fa-bar-chart"></i> Charts</a>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a class="nav-link" href="histdashboard.html">
+                                    <i class="nav-icon fa fa-bar-chart"></i> Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="histtemperature.html">
+                                    <i class="nav-icon fa fa-bar-chart"></i> Temperature</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="histhumidity.html">
+                                    <i class="nav-icon fa fa-bar-chart"></i> Humidity</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="histheatindex.html">
+                                    <i class="nav-icon fa fa-bar-chart"></i> Heat Index</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+            <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+        </div>
+        <main class="main">
+            <div class="container-fluid" style="padding:15px;">
+                <div class="animated fadeIn">
+				<div class="row ">
+					<div class="col-sm-12 col-xl-3 ">
+						<div class="card">
+							<div class="card-header">
+								<i class="nav-icon fa fa-dashboard"></i>Sensor Reading
+							</div>
+							<div  class="card-body" style="padding:10px; margin:0;">
+								 <div>
+									<h4 style="text-align: center; font-weight:bold ">Temperature<h4>
+                                    <h5 id="temperatureValue" style="text-align: center; font-weight:bold">0<h5>
+                                  </div>
+								  <div>
+									<h4 style="text-align: center; font-weight:bold">Humidity<h4>
+                                    <h5 id="humidityValue" style="text-align: center; font-weight:bold">0<h5>
+                                  </div>
+								  <div>
+									<h4 style="text-align: center; font-weight:bold">Heat Index<h4>
+                                    <h5 id="heatIndexValue" style="text-align: center; font-weight:bold">0<h5>
+                                  </div>
+							</div>
+							<div class="card-footer text-muted">
+								<span id="currentDate" class="text-muted pull-left"></span>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-xl-9 ">
+						<div class="card">
+							<div class="card-header">
+								<i class="nav-icon fa fa-dashboard"></i> Real Time Insulin Environment Graph
+								<span class="pull-right">Graph Type:  
+								  <select id="GraphType" onChange="changeGraph()">
+									<option value="line" >Line</option>
+									<option value="bar" >Bar</option>
+									
+								</select>
+							  </span>
+							</div>
+							<div id="cardBody" class="card-body" style="padding:10px; margin:0;">
+								<div id="mainChart">
+									<canvas id="myChart" width="100%" height="40vh"></canvas>
+								</div>
+							</div>
+							<div class="card-footer text-muted">
+								<span id="tempCurrentDate" class="text-muted pull-left"></span>
+							</div>
+                    </div>
+					</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="app-footer">
+        <div>
+            <a href="/">Insulin Environment Monitoring</a>
+            <span>&copy; 2018</span>
+        </div>
+
+    </footer>
+    <!-- CoreUI and necessary plugins-->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/pace-progress/pace.min.js"></script>
+    <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+    <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+    <!-- Plugins and scripts required by this view-->
+    <script src="node_modules/chart.js/dist/Chart.min.js"></script>
+    <script src="node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
+    <!-- <script src="/js/main.js"></script> -->
+    <script src="node_modules/moment/moment.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDqr7OkxaLLe71xjDaTi2Qh_ecIMpvw93s",
+            authDomain: "insulin-room.firebaseapp.com",
+            databaseURL: "https://insulin-room.firebaseio.com",
+            projectId: "insulin-room",
+            storageBucket: "insulin-room.appspot.com",
+            messagingSenderId: "528015574277"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script>
+        var currentTime = 0;
+        var tempValue = [];
+        var humiValue = [];
+        var heatValue = [];
+        var dataTime = [];
+        var maxDispData = 100;
+        var firstLoad = true
+        var i = 0;
+        var myChart;
+
+
+        $(function() {
+            firstReadFromFire()
+            setInterval(function() {
+                sigleReadFromFire()
+            }, 10000);
+        });
+		
+		function changeGraph(){
+			viewGraph(tempValue, humiValue, heatValue, dataTime);
+		}
+
+
+        function firstReadFromFire() {
+            humiValue = [];
+            tempValue = [];
+            heatValue = [];
+            dataTime = [];
+            i = 0;
+            if (myChart != null) {
+                myChart.destroy();
+            }
+            var lastPlayerRef = firebase.database().ref('temperature/').limitToLast(maxDispData);
+            lastPlayerRef.on("child_added", function(data) {
+					
+                    tempValue[i] = data.val().temp;
+                    humiValue[i] = data.val().humi;
+                    heatValue[i] = data.val().heat;
+                    dataTime[i] = timeConverter(data.val().timestamp);
+                    currentTime = data.val().timestamp;
+					
+					document.getElementById("tempCurrentDate").innerHTML = timeConverter(data.val().timestamp);
+					document.getElementById("currentDate").innerHTML = timeConverter(data.val().timestamp);
+					
+					document.getElementById("temperatureValue").innerHTML = data.val().temp + " °C";
+					document.getElementById("humidityValue").innerHTML = data.val().humi + " %";
+					document.getElementById("heatIndexValue").innerHTML = data.val().heat + " °C";
+					
+                    i++;
+                    viewGraph(tempValue, humiValue, heatValue, dataTime);
+                    // console.log(humiValue.length);
+                    lastPlayerRef.off();
+                },
+                function(error) {
+                    console.log("Error: " + error.code);
+                });
+        }
+
+        function sigleReadFromFire() {
+            var lastPlayerRef = firebase.database().ref('temperature/').limitToLast(1);
+            lastPlayerRef.once("child_added", function(data) {
+
+                    if (currentTime != data.val().timestamp) {
+                        currentTime = data.val().timestamp;
+                        var temp = data.val().temp;
+                        var humi = data.val().humi;
+                        var heat = data.val().heat;
+						document.getElementById("tempCurrentDate").innerHTML = timeConverter(data.val().timestamp);
+						document.getElementById("currentDate").innerHTML = timeConverter(data.val().timestamp);
+						document.getElementById("temperatureValue").innerHTML = data.val().temp + " °C";
+						document.getElementById("humidityValue").innerHTML = data.val().humi + " %";
+						document.getElementById("heatIndexValue").innerHTML = data.val().heat + " °C";
+                        MoveChart(myChart, temp, humi, heat, timeConverter(data.val().timestamp));
+                    }
+
+                    // tempMoveChart(myChart, data.val().value, timeConverter(data.val().timestamp));
+                    // lastPlayerRef.off();
+                },
+                function(error) {
+                    console.log("Error: " + error.code);
+                });
+        }
+
+        function timeConverter(UNIX_timestamp) {
+            var timeStamp = parseInt(UNIX_timestamp);
+            var time = moment(timeStamp).format('YYYY-MM-DD HH:mm:ss');
+            //console.log(time);
+            return time;
+        }
+
+        function MoveChart(chart, temp, humi, heat, time) {
+            // Add new data
+            // var colors = colorPicker(value);
+
+            if (chart.data.labels.length >= maxDispData) {
+                // console.log(chart.data.labels.length);
+                chart.data.labels.splice(0, 1); // remove first label
+                chart.data.datasets.forEach(function(dataset) {
+                    dataset.data.splice(0, 1); // remove first data point
+                });
+                chart.update();
+            }
+
+
+
+            if (chart.data.datasets.length > 0) {
+
+                chart.data.labels.push(time);
+                chart.data.datasets[0].data.push(temp);
+                chart.data.datasets[1].data.push(humi);
+                chart.data.datasets[2].data.push(heat);
+                chart.data.datasets[0].backgroundColor.push('rgba(2, 203, 255, 0.2)');
+                chart.data.datasets[1].backgroundColor.push('rgba(234, 114, 9, 0.2)');
+                chart.data.datasets[2].backgroundColor.push('rgba(255, 204, 0, 0.2)');
+                chart.data.datasets[0].borderColor.push('rgba(2, 203, 255, 1)');
+                chart.data.datasets[1].borderColor.push('rgba(234, 114, 9, 1)');
+                chart.data.datasets[2].borderColor.push('rgba(255, 204, 0, 1)');
+
+                chart.update();
+            }
+        }
+
+        function viewGraph(tempvalue, humiValue, heatValue, dataTime) {
+            var graphStyle = document.getElementById("GraphType").value;
+            var humbgColor = [];
+            var humbColor = [];
+            var tembgColor = [];
+            var tembColor = [];
+            var heatbgColor = [];
+            var heatbColor = [];
+            var index = 0;
+
+            if (graphStyle == "bar") {
+
+                while (index <= humiValue.length) {
+                    // var colors = colorPicker(tempValue[index]);
+                    // bgColor[index] = colors[0];
+                    // bColor[index] = colors[1];
+                    humbgColor[index] = 'rgba(234, 114, 9, 0.2)';
+                    humbColor[index] = 'rgba(234, 114, 9, 1)';
+                    tembgColor[index] = 'rgba(2, 203, 255, 0.2)';
+                    tembColor[index] = 'rgba(2, 203, 255, 1)';
+                    heatbgColor[index] = 'rgba(255, 204, 0, 0.2)';
+                    heatbColor[index] = 'rgba(255, 204, 0, 1)';
+                    index++;
+                }
+            } else {
+                humbgColor[0] = 'rgba(234, 114, 9, 0.2)';
+                humbColor[0] = 'rgba(234, 114, 9, 1)';
+                tembgColor[0] = 'rgba(2, 203, 255, 0.2)';
+                tembColor[0] = 'rgba(2, 203, 255, 1)';
+                heatbgColor[0] = 'rgba(255, 204, 0, 0.2)';
+                heatbColor[0] = 'rgba(255, 204, 0, 1)';
+            }
+
+            var pieChartContent = document.getElementById('mainChart');
+            pieChartContent.innerHTML = '&nbsp;';
+            $('#mainChart').append('<canvas id="myChart"  width="100%" height="40vh" ><canvas>');
+
+            var ctx = document.getElementById("myChart").getContext('2d');
+            myChart = new Chart(ctx, {
+                type: graphStyle,
+                data: {
+                    labels: dataTime,
+                    datasets: [{
+                        label: ' Temperature',
+                        data: tempValue,
+                        backgroundColor: tembgColor,
+                        borderColor: tembColor,
+                        borderWidth: 1
+                    }, {
+                        label: ' Humidity',
+                        data: humiValue,
+                        backgroundColor: humbgColor,
+                        borderColor: humbColor,
+                        borderWidth: 1
+                    }, {
+                        label: ' Heat Index',
+                        data: heatValue,
+                        backgroundColor: heatbgColor,
+                        borderColor: heatbColor,
+                        borderWidth: 1
+                    }]
+                },
+                        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        callback: function(value) {
+                            return value.substr(11); //truncate
+                        },
+                    }
+                }]
+            },
+            tooltips: {
+                enabled: true,
+                mode: 'label',
+                callbacks: {
+                    title: function(tooltipItems, data) {
+                        var idx = tooltipItems[0].index;
+                        return 'Date: ' + data.labels[idx]; //do something with title
+                    },
+                    label: function(tooltipItems, data) {
+                        var label = data.datasets[tooltipItems.datasetIndex].label || '';
+
+                        if (label) {
+                            label += ': ';
+                        }
+                        return label + tooltipItems.yLabel;
+                    }
+                }
+            }
+        }
+            });
+        }
+    </script>
+</body>
+
+</html>

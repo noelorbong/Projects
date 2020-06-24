@@ -1,0 +1,9 @@
+
+www.000webhost.com
+Gmail: accidenttrackerdevice@gmail.com
+psk: trackerkey
+
+API
+https://accidenttrackerdevice.000webhostapp.com/api/tracker/create.php?latitude=15.045529&longitude=120.672400&car_shock=2
+https://accidenttrackerdevice.000webhostapp.com/api/tracker/read.php?limit=1
+https://accidenttrackerdevice.000webhostapp.com/api/tracker/readdate.php?startdate=2018-08-22 00:00&enddate=2018-08-22 24:00

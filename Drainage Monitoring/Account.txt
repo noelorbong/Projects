@@ -1,0 +1,16 @@
+Google Account
+Site: https://mail.google.com
+Email: drainagemonitoringsystem@gmail.com
+password: drainagekey
+
+000webhost Account
+Site: https://ph.000webhost.com/
+Email: drainagemonitoringsystem@gmail.com
+password: drainagekey
+
+phpmyadmin Account
+site: https://databases.000webhost.com/
+username: id6741275_drainage
+password: drainagekey
+
+Webiste: drainagemonitoring.000webhostapp.com 

@@ -1,0 +1,14 @@
+Google Account
+Site: google.com
+Email: wallettracking@gmail.com
+Password: walletkey
+
+Thing Speak Account
+Site: ThingSpeak.com
+Email: wallettracking@gmail.com
+Password: WalletKey0
+
+1Apps account
+Site: 1apps.com
+Username: wallettracker
+Password: walletkey

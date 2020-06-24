@@ -1,0 +1,5 @@
+Raspberry Pi MySQL & PHPMyAdmin Tutorial
+site: https://pimylifeup.com/raspberry-pi-mysql-phpmyadmin/
+
+Laravel installation
+site: https://laravel.com/docs/5.7/installation 
